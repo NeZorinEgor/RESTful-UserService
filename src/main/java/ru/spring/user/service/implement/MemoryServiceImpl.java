@@ -9,11 +9,11 @@ import ru.spring.user.service.UserService;
 import java.util.List;
 
 @Service
-public class MemoryService implements UserService {
+public class MemoryServiceImpl implements UserService {
     private final MemoryUserDAO repository;
 
     @Autowired
-    public MemoryService(MemoryUserDAO memoryUserDAO) {
+    public MemoryServiceImpl(MemoryUserDAO memoryUserDAO) {
         this.repository = memoryUserDAO;
     }
 

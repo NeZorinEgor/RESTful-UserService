@@ -1,10 +1,19 @@
 package ru.spring.user.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
     private String firstName; // имя
     private String lastName; //фамилия
     private String patronymic; //отчество
     private long phone; // телефон
+    @Column(unique = true)
     private long profNumber; //проф номер
     private String faculty; //факультет
     private int course; //курс
