@@ -7,6 +7,7 @@ import ru.spring.user.repository.MemoryUserDAO;
 import ru.spring.user.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemoryServiceImpl implements UserService {
@@ -28,8 +29,8 @@ public class MemoryServiceImpl implements UserService {
     }
 
     @Override
-    public User findByProfNumber(long profNumber) {
-        return repository.findByProfNumber(profNumber);
+    public Optional<User> findByProfNumber(long profNumber) {
+        return Optional.ofNullable(repository.findByProfNumber(profNumber));
     }
 
     @Override

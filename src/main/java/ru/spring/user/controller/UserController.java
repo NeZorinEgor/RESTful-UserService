@@ -1,17 +1,17 @@
 package ru.spring.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.spring.user.model.User;
 import ru.spring.user.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController{
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService){
@@ -29,7 +29,7 @@ public class UserController{
     }
 
     @GetMapping("/{id}")
-    public User findUserByProfNumber(@PathVariable("id") long profNumber){
+    public Optional<User> findUserByProfNumber(@PathVariable("id") long profNumber){
         return userService.findByProfNumber(profNumber);
     }
 

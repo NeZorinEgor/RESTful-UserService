@@ -1,6 +1,7 @@
 package ru.spring.user.model;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name = "users")
@@ -26,6 +27,16 @@ public class User {
         this.profNumber = profNumber;
         this.faculty = faculty;
         this.course = course;
+    }
+
+    public User() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -56,7 +67,7 @@ public class User {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 
@@ -64,7 +75,7 @@ public class User {
         return profNumber;
     }
 
-    public void setProfNumber(int profNumber) {
+    public void setProfNumber(long profNumber) {
         this.profNumber = profNumber;
     }
 
@@ -80,7 +91,7 @@ public class User {
         return course;
     }
 
-    public void setCourse(short course) {
+    public void setCourse(int course) {
         this.course = course;
     }
 
