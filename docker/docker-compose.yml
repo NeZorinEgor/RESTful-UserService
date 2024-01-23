@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   app:
-    image: 1b50d0175132
+    image: 5eb1127fef05
     container_name: app
     expose:
       - '8080'
@@ -10,8 +10,7 @@ services:
       - '8080:8080'
     environment:
       - DB_USER=root
-      - DB_PASSWORD=
-      - DB.URL=jdbc:mysql://db:3306/users
+      - DB_URL=jdbc:mysql://db:3306/mysql
     depends_on:
       - db
   db:
@@ -20,6 +19,4 @@ services:
     expose:
       - '3306'
     environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=
-
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
