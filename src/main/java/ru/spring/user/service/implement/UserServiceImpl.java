@@ -8,6 +8,7 @@ import ru.spring.user.repository.UserRepository;
 import ru.spring.user.service.UserService;
 import ru.spring.user.util.UserNotFoundedException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
+        enrichUser(user);
         return reposytory.save(user);
     }
 
@@ -45,5 +47,11 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteUser(long profNumber) {
         reposytory.deleteByProfNumber(profNumber);
+    }
+
+    private void enrichUser(User user) {
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+        user.setCreatedWho("ADIMN");
     }
 }

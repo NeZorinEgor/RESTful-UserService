@@ -1,7 +1,10 @@
 package ru.spring.user.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -10,14 +13,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    private String firstName; // имя
-    private String lastName; //фамилия
-    private String patronymic; //отчество
-    private long phone; // телефон
+    private String firstName;
+    private String lastName;
+    private String patronymic;
+    private long phone;
     @Column(unique = true)
-    private long profNumber; //проф номер
-    private String faculty; //факультет
-    private int course; //курс
+    private long profNumber;
+    private String faculty;
+    private int course;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+    @NotEmpty
+    @Column(name = "created_who")
+    private String createdWho;
 
     public User(String firstName, String lastName, String patronymic, long phone, long profNumber, String faculty, int course) {
         this.firstName = firstName;
@@ -27,6 +37,30 @@ public class User {
         this.profNumber = profNumber;
         this.faculty = faculty;
         this.course = course;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedWho() {
+        return createdWho;
+    }
+
+    public void setCreatedWho(String createdWho) {
+        this.createdWho = createdWho;
     }
 
     public User() {}
