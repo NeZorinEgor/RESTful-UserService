@@ -7,7 +7,7 @@ import ru.spring.user.model.User;
 import java.util.Optional;
 
 @Repository
-public interface UserReposytory extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByProfNumber(long profNumber);
     void deleteByProfNumber(long profNumber);
 }

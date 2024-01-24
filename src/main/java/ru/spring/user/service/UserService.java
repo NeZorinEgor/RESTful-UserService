@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface UserService {
     List<User> allUsers();
     User saveUser(User user);
-    Optional<User> findByProfNumber(long numeric);
+    User findByProfNumber(long numeric);
     User updateUser(User user);
     void deleteUser(long profNumber);
 

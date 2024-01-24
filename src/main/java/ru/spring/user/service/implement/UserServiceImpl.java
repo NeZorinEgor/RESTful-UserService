@@ -4,8 +4,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ru.spring.user.model.User;
-import ru.spring.user.repository.UserReposytory;
+import ru.spring.user.repository.UserRepository;
 import ru.spring.user.service.UserService;
+import ru.spring.user.util.UserNotFoundedException;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,9 +14,9 @@ import java.util.Optional;
 @Service
 @Primary
 public class UserServiceImpl implements UserService {
-    private final UserReposytory reposytory;
+    private final UserRepository reposytory;
 
-    public UserServiceImpl(UserReposytory reposytory) {
+    public UserServiceImpl(UserRepository reposytory) {
         this.reposytory = reposytory;
     }
 
@@ -30,8 +31,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByProfNumber(long numeric) {
-        return reposytory.findByProfNumber(numeric);
+    public User findByProfNumber(long numeric) {
+        Optional<User> user = reposytory.findByProfNumber(numeric);
+        return user.orElseThrow(UserNotFoundedException::new);
     }
 
     @Override
