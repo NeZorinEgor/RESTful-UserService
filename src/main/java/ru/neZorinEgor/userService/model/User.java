@@ -11,13 +11,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private long id;
     private String firstName;
     private String lastName;
     private String patronymic;
     private long phone;
     @Column(unique = true)
-    private long profNumber;
+    private Long profNumber;
     private String faculty;
     private int course;
     @Column(name = "created_at")

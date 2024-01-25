@@ -45,8 +45,9 @@ public class UserController{
     }
 
     @PutMapping("/update")
-    public User updateUser(@RequestBody User user){
-        return userService.updateUser(user);
+    public String updateUser(@RequestBody UserDTO userDTO){
+        userService.updateUser(convertToUser(userDTO));
+        return "ok";
     }
 
     @DeleteMapping("/{id}")

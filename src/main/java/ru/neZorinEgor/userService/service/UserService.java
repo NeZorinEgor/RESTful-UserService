@@ -1,5 +1,6 @@
 package ru.neZorinEgor.userService.service;
 
+import ru.neZorinEgor.userService.dto.UserDTO;
 import ru.neZorinEgor.userService.model.User;
 
 import java.util.List;

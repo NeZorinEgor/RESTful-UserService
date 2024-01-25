@@ -3,6 +3,7 @@ package ru.neZorinEgor.userService.service.implement;
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import ru.neZorinEgor.userService.dto.UserDTO;
 import ru.neZorinEgor.userService.model.User;
 import ru.neZorinEgor.userService.repository.UserRepository;
 import ru.neZorinEgor.userService.service.UserService;
@@ -28,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        enrichUser(user);
+        enrichOnCreateUser(user);
         return reposytory.save(user);
     }
 
@@ -39,8 +40,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        return reposytory.save(user);
+    public User updateUser(User updatedUser) {
+        User notDtoUser = findByProfNumber(updatedUser.getProfNumber());
+        updatedUser.setId(notDtoUser.getId());
+        updatedUser.setUpdatedAt(LocalDateTime.now());
+        updatedUser.setCreatedAt(notDtoUser.getCreatedAt());
+        updatedUser.setCreatedWho(notDtoUser.getCreatedWho());
+        return reposytory.save(updatedUser);
     }
 
     @Override
@@ -49,9 +55,9 @@ public class UserServiceImpl implements UserService {
         reposytory.deleteByProfNumber(profNumber);
     }
 
-    private void enrichUser(User user) {
+    private void enrichOnCreateUser(User user) {
         user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
+        user.setUpdatedAt(null);
         user.setCreatedWho("ADIMN");
     }
 }
