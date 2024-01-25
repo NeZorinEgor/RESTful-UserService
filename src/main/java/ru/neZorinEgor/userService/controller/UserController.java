@@ -1,5 +1,6 @@
 package ru.neZorinEgor.userService.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import ru.neZorinEgor.userService.util.UserNotFoundedException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Tag(name = "All methods")
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController{
