@@ -1,4 +1,4 @@
-package ru.spring.user.util;
+package ru.neZorinEgor.userService.util;
 
 import org.springframework.http.HttpStatus;
 

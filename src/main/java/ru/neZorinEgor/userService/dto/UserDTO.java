@@ -1,6 +1,4 @@
-package ru.spring.user.dto;
-
-import jakarta.persistence.Column;
+package ru.neZorinEgor.userService.dto;
 
 public class UserDTO {
     private String firstName;

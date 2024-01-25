@@ -1,9 +1,8 @@
-package ru.spring.user.service;
+package ru.neZorinEgor.userService.service;
 
-import ru.spring.user.model.User;
+import ru.neZorinEgor.userService.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     List<User> allUsers();

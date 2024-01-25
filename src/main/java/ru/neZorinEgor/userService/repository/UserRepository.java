@@ -1,8 +1,8 @@
-package ru.spring.user.repository;
+package ru.neZorinEgor.userService.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.spring.user.model.User;
+import ru.neZorinEgor.userService.model.User;
 
 import java.util.Optional;
 

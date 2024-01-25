@@ -1,4 +1,4 @@
-package ru.spring.user;
+package ru.neZorinEgor.userService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

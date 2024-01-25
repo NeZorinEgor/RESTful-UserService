@@ -1,8 +1,7 @@
-package ru.spring.user.model;
+package ru.neZorinEgor.userService.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 

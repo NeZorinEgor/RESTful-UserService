@@ -1,12 +1,12 @@
-package ru.spring.user.service.implement;
+package ru.neZorinEgor.userService.service.implement;
 
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import ru.spring.user.model.User;
-import ru.spring.user.repository.UserRepository;
-import ru.spring.user.service.UserService;
-import ru.spring.user.util.UserNotFoundedException;
+import ru.neZorinEgor.userService.model.User;
+import ru.neZorinEgor.userService.repository.UserRepository;
+import ru.neZorinEgor.userService.service.UserService;
+import ru.neZorinEgor.userService.util.UserNotFoundedException;
 
 import java.time.LocalDateTime;
 import java.util.List;
