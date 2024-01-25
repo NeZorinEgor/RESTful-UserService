@@ -1,5 +1,6 @@
 package ru.neZorinEgor.userService.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class UserController{
 
 
 
+    @Operation(
+            summary = "Создает пользователя. Айди берет на себя бд",
+            description = "Берет DTO и билдит в пользователя.(Время создания, кто создал)"
+    )
     @PostMapping
     public String saveUser(@RequestBody UserDTO userDTO){
         userService.saveUser(convertToUser(userDTO));

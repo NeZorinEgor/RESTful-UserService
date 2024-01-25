@@ -22,7 +22,7 @@ public class BeensConfig {
         return new OpenAPI().servers(
                 List.of(new Server().url("http://localhost:8080"))
         ).info(
-                new Info().title("User doc")
+                new Info().title("User-Service by neZorinEgor")
         );
     }
 }
